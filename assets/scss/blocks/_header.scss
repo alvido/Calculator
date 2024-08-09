@@ -1,0 +1,40 @@
+.header{
+    position: relative;
+    z-index: 2;
+    padding: 15px 0;
+    color: var(--color-light);
+    background-color: var(--color-dark);
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 60px;
+
+        @include tablet {
+            column-gap: 30px;
+        }
+    }
+}
+
+.actions {
+    position: relative;
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+    margin-left: auto;
+
+    @include tablet {
+        margin: 0;
+    }
+
+    @include phone {
+        column-gap: 20px;
+    }
+
+    & .button {
+        @include phone {
+            display: none;
+        }
+    }
+}

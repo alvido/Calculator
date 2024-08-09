@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Calculator</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner container">
+            <a href="/" class="header__logo logo">
+                <img class="logo__image" src="assets/images/logo.png" alt="logo">
+                Logo
+            </a>
+            <nav class="header__nav navigation">
+                <ul class="navigation__list">
+                    <li><a href="about.html">Про нас</a></li>
+                    <li><a href="/#faq">Питання та відповіді</a></li>
+                    <li><a href="/contacts.html">Контакти</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__actions actions">
+                <button class="search__open" id="searchOpen" type="button"><svg width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M21.0004 21.0004L16.6504 16.6504" stroke="white" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <form class="search" id="search" action="/search" method="GET">
+                    <input class="search__input" id="searchInput" type="text" name="search__input"
+                        placeholder="Search...">
+                    <button class="search__submit" id="searchButton" type="submit"><svg width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M21.0004 21.0004L16.6504 16.6504" stroke="white" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
+                <a href="/" class="button">Калькулятор</a>
+                <button class="header__burger burger" id="burgerButton">
+                    <span>Menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <maim class="main">
+        <section class="contacts">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="col">
+                        <img class="contacts__img" src="assets/images/contact/woman.jpg" alt="">
+                    </div>
+                    <div class="col">
+                        <h2>Контакти</h2>
+                        <p class="subtitle">
+                            На ринку існують інші типи банківських рахунків, орієнтованих на заощадження,
+                            наприклад  платні ощадні рахунки.  Як випливає з назви, вони пропонують певний тип
+                            винагороди,
+                            тобто залишок на рахунку буде приносити відсотки.
+                        </p>
+                        <div class="info">
+                            <p class="subtitle">
+                                м. Київ
+                            </p>
+                            <p> вул. ул. Немировича-Данченко, буд. 71а, офіс 3 (ІІ поверх)</p>
+                            <div class="links">
+                                <img src="assets/images/icon/phone.svg" alt="">
+                                <a href="tel:+38 (066) 888 22 44">+38 (066) 888 22 44</a>
+                                <a href="tel:+38 (098) 888 22 44">+38 (098) 888 22 44</a>
+                            </div>
+                            <div class="links">
+                                <img src="assets/images/icon/mail.svg" alt="">
+                                <a href="mailto:website@gmail.com">website@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <p class="subtitle">
+                                м. Київ
+                            </p>
+                            <p> вул. ул. Немировича-Данченко, буд. 71а, офіс 3 (ІІ поверх)</p>
+                            <div class="links">
+                                <img src="assets/images/icon/phone.svg" alt="">
+                                <a href="tel:+38 (066) 888 22 44">+38 (066) 888 22 44</a>
+                                <a href="tel:+38 (098) 888 22 44">+38 (098) 888 22 44</a>
+                            </div>
+                            <div class="links">
+                                <img src="assets/images/icon/mail.svg" alt="">
+                                <a href="mailto:website@gmail.com">website@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="col">
+                        <p>На ринку існують інші типи банківських рахунків, орієнтованих на заощадження,
+                            наприклад  платні
+                            ощадні рахунки.  Як випливає з назви, вони пропонують певний тип винагороди, тобто залишок
+                            на
+                            рахунку буде приносити відсотки. Зазвичай вони мають більш обмежені операції, ніж поточний
+                            рахунок. Наприклад, вони не дозволяють</p>
+                    </div>
+                    <div class="col">
+                        <p>На ринку існують інші типи банківських рахунків, орієнтованих на заощадження,
+                            наприклад  платні
+                            ощадні рахунки.  Як випливає з назви, вони пропонують </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section class="feedback">
+            <div class="container">
+                <div class="feedback__inner --bg">
+                    <h2>Потрібна допомога? </h2>
+                    <p class="subtitle">Напишіть нам, дамо відповіді на питання.</p>
+                    <a href="" class="feedback__link">
+                        <img src="assets/images/about/avatar.png" alt="avatar">
+                        Напишіть нам
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 2L11 13" stroke="#111113" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="#111113" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                    <form class="feedback__form" action="">
+                        <input type="text" name="name" id="name" placeholder="Ваше ім’я">
+                        <input type="tel" name="phone" id="phone" placeholder="Телефон">
+                        <input type="email" name="email" id="email" placeholder="E-mail">
+                        <button class="button">Відправити</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </maim>
+
+    <footer class="footer">
+        <div class="footer__inner container">
+            <a href="/" class="header__logo logo">
+                <img class="logo__image" src="assets/images/logo.png" alt="logo">
+                Logo
+            </a>
+            <p class="copy">© Калькулятор податку на доходи фізичних осіб. Всі права захищені.</p>
+            <div class="social">
+                <a href="" class="facebook">facebook</a>
+                <a href="" class="instagram">instagram</a>
+                <a href="" class="linkedin">linkedin</a>
+                <a href="" class="play-circle">play-circle</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>

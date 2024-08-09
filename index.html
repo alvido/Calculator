@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Calculator</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__inner container">
+            <a href="/" class="header__logo logo">
+                <img class="logo__image" src="assets/images/logo.png" alt="logo">
+                Logo
+            </a>
+            <nav class="header__nav navigation">
+                <ul class="navigation__list">
+                    <li><a href="about.html">Про нас</a></li>
+                    <li><a href="/#faq">Питання та відповіді</a></li>
+                    <li><a href="/contacts.html">Контакти</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__actions actions">
+                <button class="search__open" id="searchOpen" type="button"><svg width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M21.0004 21.0004L16.6504 16.6504" stroke="white" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <form class="search" id="search" action="/search" method="GET">
+                    <input class="search__input" id="searchInput" type="text" name="search__input"
+                        placeholder="Search...">
+                    <button class="search__submit" id="searchButton" type="submit"><svg width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
+                                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M21.0004 21.0004L16.6504 16.6504" stroke="white" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </form>
+                <a href="/" class="button">Калькулятор</a>
+                <button class="header__burger burger" id="burgerButton">
+                    <span>Menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="hero__inner container">
+                <div class="content">
+                    <h1>Розрахуйте утриманий податок на доходи фізичних осіб із вашої заробітної плати</h1>
+                    <p class="section__text">Залежно від вашої роботи та сімейного становища ви будете знати ставку
+                        податку на доходи фізичних
+                        осіб.</p>
+                    <img class="hero__image visible-mobile" src="assets/images/hero.png" alt="hero">
+                    <ul class="section__list">
+                        <li>Тут можна легко розрахувати податок</li>
+                        <li>Тут можна легко розрахувати податок</li>
+                        <li>Знати ставку податку</li>
+                    </ul>
+                </div>
+                <img class="hero__image hidden-mobile" src="assets/images/hero.png" alt="hero">
+            </div>
+        </section>
+        <section class="calculator section--bg">
+            <div class="container">
+                <h2 class="visible-mobile">Калькулятор податку на доходи фізичних осіб</h2>
+                <p class="section__text visible-mobile">Тут можна легко розрахувати податок на доходи фізичних осіб.
+                    Залежно від вашої
+                    роботи та
+                    сімейного становища ви будете знати ставку податку на доходи фізичних осіб, яка буде застосована
+                    до вас.</p>
+                <div class="calculator__inner">
+                    <form action="" class="calculator__form">
+                        <label for="brutto">
+                            Річна зарплата брутто
+                            <input type="number" id="brutto" name="brutto" placeholder="1000">
+                        </label>
+                        <label for="age">
+                            Вік
+                            <input type="number" id="age" name="age" placeholder="25">
+                        </label>
+                        <label for="category">
+                            <select name="category" id="category">
+                                <option value="Професійна категорія" selected disabled>Професійна категорія</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                            </select>
+                        </label>
+                        <label class="input__row custom-checkbox" for="geographical">
+                            Географічна мобільність
+                            <input type="checkbox" name="geographical" id="geographical" checked>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label for="disability">
+                            Чи маєте ви будь-який тип інвалідності?
+                            <select name="disability" id="disability">
+                                <option value="Автономне співтовариство" selected disabled>Автономне співтовариство
+                                </option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                            </select>
+                        </label>
+                        <label class="input__row custom-checkbox" for="demographic">
+                            Географічна мобільність
+                            <input type="checkbox" name="demographic" id="demographic">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="input__row custom-checkbox" for="people">
+                            Люди під вашою опікою
+                            <input type="checkbox" name="people" id="people" checked>
+                            <span class="checkmark"></span>
+                            <label class="input__row full" for="peopleCount" id="peopleCountContainer">
+                                <button class="action__button" type="button" id="decreaseButton">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g opacity="0.6">
+                                            <path d="M3.33301 8H12.6663" stroke="#111113" stroke-width="1.33333"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </svg>
+                                </button>
+                                <input type="text" name="peopleCount" id="peopleCount" value="1">
+                                <button class="action__button" type="button" id="increaseButton">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g opacity="0.6">
+                                            <path d="M8 3.33301V12.6663" stroke="#111113" stroke-width="1.33333"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M3.33301 8H12.6663" stroke="#111113" stroke-width="1.33333"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </g>
+                                    </svg>
+                                </button>
+                            </label>
+                        </label>
+                        <button class="button button--big">
+                            Обчислити
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.83301 14.1663L14.1663 5.83301" stroke="white" stroke-width="1.66667"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M5.83301 5.83301H14.1663V14.1663" stroke="white" stroke-width="1.66667"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </form>
+                    <div class="calculator__content desktop__result">
+                        <h2 class="hidden-mobile">Калькулятор податку на доходи фізичних осіб</h2>
+                        <p class="section__text hidden-mobile">Тут можна легко розрахувати податок на доходи фізичних
+                            осіб. Залежно
+                            від вашої роботи та
+                            сімейного становища ви будете знати ставку податку на доходи фізичних осіб, яка буде
+                            застосована
+                            до вас.</p>
+                        <ul class="calculator__content__list">
+                            <li>
+                                <div class="balance">
+                                    <span>
+                                        <img src="assets/images/icon/brutto.svg" alt="">
+                                    </span>
+                                    00 <sub>00</sub>€
+                                </div>
+                                <p>ПДФО</p>
+                            </li>
+                            <li>
+                                <div class="balance">
+                                    <span>
+                                        <img src="assets/images/icon/pdfo.svg" alt="">
+                                    </span>
+                                    889 03 <sub>00</sub>€
+                                </div>
+                                <p>Річна зарплата брутто</p>
+                            </li>
+                            <li>
+                                <div class="balance">
+                                    <span>
+                                        <img src="assets/images/icon/heart-handshake.svg" alt="">
+                                    </span>
+                                    100 000<sub>00</sub>€
+                                </div>
+                                <p>Внесок на соціальне страхування</p>
+                            </li>
+                            <li>
+                                <div class="balance">
+                                    <span>
+                                        <img src="assets/images/icon/percentage.svg" alt="">
+                                    </span>
+                                    00 <sub>00</sub>%
+                                </div>
+                                <p>Вид утримання ПДФО</p>
+                            </li>
+                            <li class="full">
+                                <div class="balance">
+                                    <span>
+                                        <img src="assets/images/icon/grommet-money.svg" alt="">
+                                    </span>
+                                    9110 97 <sub>00</sub>€
+                                </div>
+                                <p>Річна чиста зарплата</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="calculator__content mobil__result">
+                <h2 class="hidden-mobile">Результат</h2>
+                <ul class="calculator__content__list">
+                    <li>
+                        <div class="balance">
+                            <span>
+                                <img src="assets/images/icon/brutto.svg" alt="">
+                            </span>
+                            00 <sub>00</sub>€
+                        </div>
+                        <p>ПДФО</p>
+                    </li>
+                    <li>
+                        <div class="balance">
+                            <span>
+                                <img src="assets/images/icon/pdfo.svg" alt="">
+                            </span>
+                            889 03 <sub>00</sub>€
+                        </div>
+                        <p>Річна зарплата брутто</p>
+                    </li>
+                    <li>
+                        <div class="balance">
+                            <span>
+                                <img src="assets/images/icon/heart-handshake.svg" alt="">
+                            </span>
+                            100 000<sub>00</sub>€
+                        </div>
+                        <p>Внесок на соціальне страхування</p>
+                    </li>
+                    <li>
+                        <div class="balance">
+                            <span>
+                                <img src="assets/images/icon/percentage.svg" alt="">
+                            </span>
+                            00 <sub>00</sub>%
+                        </div>
+                        <p>Вид утримання ПДФО</p>
+                    </li>
+                    <li class="full">
+                        <div class="balance">
+                            <span>
+                                <img src="assets/images/icon/grommet-money.svg" alt="">
+                            </span>
+                            9110 97 <sub>00</sub>€
+                        </div>
+                        <p>Річна чиста зарплата</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="articles">
+            <div class="container">
+                <div class="wrapper">
+                    <p class="subtitle">Невеликий підзаголовок</p>
+                    <div class="col">
+                        <h2>Заголовок H2 блоку </h2>
+                    </div>
+                    <div class="col">
+                        <p class="subtitle">Тут можна легко розрахувати податок на доходи фізичних осіб. Залежно від
+                            вашої роботи та
+                            сімейного становища ви будете знати ставку податку на доходи фізичних осіб, яка буде
+                            застосована до вас. Тут можна легко розрахувати податок на доходи фізичних осіб. </p>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="col --img">
+                        <img src="assets/images/photo.jpg" alt="">
+                    </div>
+                    <div class="col --bg">
+                        <h3>Заголовок H3 </h3>
+                        <p class="subtitle">
+                            Тут можна легко розрахувати податок на доходи фізичних осіб. Залежно від вашої роботи та
+                            сімейного становища ви будете знати ставку податку на доходи фізичних осіб, яка буде
+                            застосована до вас. Тут можна легко розрахувати податок на доходи фізичних осіб.
+                            <br>
+                            Тут можна легко розрахувати податок на доходи фізичних осіб. Залежно від вашої роботи та
+                            сімейного становища ви будете знати ставку податку
+                        </p>
+                        <ul class="section__list">
+                            <li>Залежно від вашої роботи та сімейного становища</li>
+                            <li>Тут можна легко розрахувати податок</li>
+                            <li>Знати ставку податку</li>
+                            <li>Вашої роботи та сімейного становища</li>
+                            <li>Вашої роботи та сімейного становища</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="wrapper border-bottom">
+                    <p class="subtitle">Невеликий підзаголовок</p>
+                    <div class="col">
+                        <h2>Заголовок H2 блоку </h2>
+                    </div>
+                    <div class="col">
+                        <p class="subtitle">Тут можна легко розрахувати податок на доходи фізичних осіб. Залежно від
+                            вашої роботи та
+                            сімейного становища ви будете знати ставку податку на доходи фізичних осіб, яка буде
+                            застосована до вас. Тут можна легко розрахувати податок на доходи фізичних осіб. </p>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="col visually-hidden"></div>
+                    <div class="col">
+                        <p>На ринку існують інші типи банківських рахунків, орієнтованих на заощадження,
+                            наприклад  платні ощадні рахунки.  Як випливає з назви, вони пропонують певний тип
+                            винагороди, тобто залишок на рахунку буде приносити відсотки. Зазвичай вони мають більш
+                            обмежені операції, ніж поточний рахунок. Наприклад, вони не дозволяють пряме дебетування
+                            заробітної плати чи квитанцій або пов’язують із ним дебетову або кредитну картку, але це
+                            можна розглядати як перевагу, якщо ви хочете заощадити. На відміну від строкового вкладу, ви
+                            можете використовувати свої гроші, коли вам це потрібно, без штрафних санкцій.
+                            <br><br><br>
+                            На ринку існують інші типи банківських рахунків, орієнтованих на заощадження,
+                            наприклад  платні ощадні рахунки.  Як випливає з назви, вони пропонують певний тип
+                            винагороди, тобто залишок на рахунку буде приносити відсотки. Зазвичай вони мають більш
+                            обмежені операції, ніж поточний рахунок. Наприклад, вони не дозволяють пряме дебетування
+                            заробітної плати чи квитанцій або пов’язують із ним дебетову або кредитну картку, але це
+                            можна розглядати як перевагу, якщо ви хочете заощадити. На відміну від строкового вкладу, ви
+                            можете використовувати свої гроші, коли вам це потрібно, без штрафних санкцій.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="rewards section--bg">
+            <div class="container">
+                <p class="subtitle">Невеликий підзаголовок</p>
+                <h2>Як випливає з назви, вони пропонують певний тип винагороди.</h2>
+                <ul class="rewards__list">
+                    <li>
+                        <span>
+                            <img src="assets/images/icon/dollar.svg" alt="">
+                        </span>
+                        <h4>Розрахувати податок на доходи </h4>
+                        <p>Тут можна легко розрахувати податок на доходи фізичних осіб. Залежно від вашої.</p>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="assets/images/icon/clock.svg" alt="">
+                        </span>
+                        <h4>Розрахувати податок на доходи </h4>
+                        <p>Тут можна легко розрахувати податок на доходи фізичних осіб. Залежно від вашої.</p>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="assets/images/icon/trending-up.svg" alt="">
+                        </span>
+                        <h4>Розрахувати податок на доходи </h4>
+                        <p>Тут можна легко розрахувати податок на доходи фізичних осіб. Залежно від вашої.</p>
+                    </li>
+                    <li>
+                        <span>
+                            <img src="assets/images/icon/trending-up.svg" alt="">
+                        </span>
+                        <h4>Розрахувати податок на доходи </h4>
+                        <p>Тут можна легко розрахувати податок на доходи фізичних осіб. Залежно від вашої.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="articles">
+            <article>
+                <div class="container">
+                    <div class="wrapper border-bottom">
+                        <p class="subtitle">Невеликий підзаголовок</p>
+                        <div class="col full">
+                            <h2>Заголовок H2 блоку </h2>
+                        </div>
+                    </div>
+
+                    <div class="wrapper ">
+                        <div class="col full limit">
+                            <p>На ринку існують інші типи банківських рахунків, орієнтованих на заощадження,
+                                наприклад  платні ощадні рахунки.  Як випливає з назви, вони пропонують певний тип
+                                винагороди, тобто залишок на рахунку буде приносити відсотки. Зазвичай вони мають більш
+                                обмежені операції, ніж поточний рахунок. Наприклад, вони не дозволяють пряме дебетування
+                                заробітної плати чи квитанцій або пов’язують із ним дебетову або кредитну картку, але це
+                                можна розглядати як перевагу, якщо ви хочете заощадити. На відміну від строкового
+                                вкладу, ви можете використовувати свої гроші, коли вам це потрібно, без штрафних
+                                санкцій.
+                            </p>
+                            <br><br>
+                            <p>На ринку існують інші типи банківських рахунків, орієнтованих на заощадження,
+                                наприклад  платні ощадні рахунки.  Як випливає з назви, вони пропонують певний тип
+                                винагороди, тобто залишок на рахунку буде приносити відсотки. Зазвичай вони мають більш
+                                обмежені операції, ніж поточний рахунок. Наприклад, вони не дозволяють пряме дебетування
+                                заробітної плати чи квитанцій або пов’язують із ним дебетову або кредитну картку, але це
+                                можна розглядати як перевагу, якщо ви хочете заощадити. На відміну від строкового
+                                вкладу, ви можете використовувати свої гроші, коли вам це потрібно, без штрафних
+                                санкцій. На ринку існують інші типи банківських рахунків, орієнтованих на заощадження,
+                                наприклад  платні ощадні рахунки.  Як випливає з назви, вони пропонують певний тип
+                                винагороди, тобто залишок на рахунку буде приносити відсотки. Зазвичай вони мають більш
+                                обмежені операції, ніж поточний рахунок.
+                            </p>
+                        </div>
+                        <button class="more">
+                            Читати більше
+                            <img src="assets/images/icon/shevron.svg" alt="">
+                        </button>
+                    </div>
+
+                    <div class="wrapper ">
+                        <div class="col full --img">
+                            <img src="assets/images/stylish-business-team.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+
+            <article>
+                <div class="container">
+                    <div class="wrapper border-bottom">
+                        <p class="subtitle">Невеликий підзаголовок</p>
+                        <div class="col full">
+                            <h2>Заголовок H2 блоку </h2>
+                        </div>
+                    </div>
+
+                    <div class="wrapper ">
+                        <div class="col full limit">
+                            <p>
+                                На ринку існують інші типи банківських рахунків, орієнтованих на заощадження,
+                                наприклад  платні ощадні рахунки.  Як випливає з назви, вони пропонують певний тип
+                                винагороди, тобто залишок на рахунку буде приносити відсотки. Зазвичай вони мають більш
+                                обмежені операції, ніж поточний рахунок. Наприклад, вони не дозволяють пряме дебетування
+                                заробітної плати чи квитанцій або пов’язують із ним дебетову або кредитну картку, але це
+                                можна розглядати.
+                                <br><br><br>
+                                На ринку існують інші типи банківських рахунків, орієнтованих на заощадження,
+                                наприклад  платні ощадні рахунки.  Як випливає з назви, вони пропонують певний тип
+                                винагороди, тобто залишок на рахунку буде приносити відсотки. Зазвичай вони мають більш
+                                обмежені операції, ніж поточний рахунок. Наприклад, вони не дозволяють пряме дебетування
+                                заробітної плати чи квитанцій або пов’язують із ним дебетову або кредитну картку, але це
+                                можна розглядати як перевагу, якщо ви хочете заощадити. На відміну від строкового
+                                вкладу, ви можете використовувати свої гроші, коли вам це потрібно, без штрафних
+                                санкцій. На ринку існують інші типи банківських рахунків, орієнтованих на заощадження,
+                                наприклад  платні ощадні рахунки.  Як випливає з назви, вони пропонують певний тип
+                                винагороди, тобто залишок на рахунку буде приносити відсотки. Зазвичай вони мають більш
+                                обмежені операції, ніж поточний рахунок.
+                                <br><br>
+                                На ринку існують інші типи банківських рахунків, орієнтованих на заощадження,
+                                наприклад  платні ощадні рахунки.  Як випливає з назви, вони пропонують певний тип
+                                винагороди, тобто залишок на рахунку буде приносити відсотки. Зазвичай вони мають більш
+                                обмежені операції, ніж поточний рахунок. Наприклад, вони не дозволяють пряме дебетування
+                                заробітної плати чи квитанцій або пов’язують із ним дебетову або кредитну картку, але це
+                                можна розглядати як перевагу, якщо ви хочете заощадити. На відміну від строкового
+                                вкладу, ви можете використовувати свої гроші, коли вам це потрібно, без штрафних
+                                санкцій. На ринку існують інші типи банківських рахунків, орієнтованих на заощадження,
+                                наприклад  платні ощадні рахунки.  Як випливає з назви, вони пропонують певний тип
+                                винагороди, тобто залишок на рахунку буде приносити відсотки. Зазвичай вони мають більш
+                                обмежені операції, ніж поточний рахунок. На ринку існують інші типи банківських
+                                рахунків, орієнтованих на заощадження, наприклад  платні ощадні рахунки.  Як випливає з
+                                назви, вони пропонують певний тип винагороди, тобто залишок на рахунку буде приносити
+                                відсотки. Зазвичай вони мають більш обмежені операції, ніж поточний рахунок. Наприклад,
+                                вони не дозволяють пряме дебетування заробітної плати чи квитанцій або пов’язують із ним
+                                дебетову або кредитну картку, але це можна розглядати як перевагу, якщо ви хочете
+                                заощадити. На відміну від строкового вкладу, ви можете використовувати свої гроші, коли
+                                вам це потрібно, без штрафних санкцій. На ринку існують інші типи банківських рахунків,
+                                орієнтованих на заощадження, наприклад  платні ощадні рахунки.  Як випливає з назви,
+                                вони пропонують певний тип винагороди, тобто залишок на рахунку буде приносити відсотки.
+                                Зазвичай вони мають більш обмежені операції, ніж поточний рахунок.
+                            </p>
+                        </div>
+                        <button class="more">
+                            Читати більше
+                            <img src="assets/images/icon/shevron.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section class="faq">
+            <div class="container">
+                <div class="wrapper">
+                    <p class="subtitle">Питання що часто задаються</p>
+                    <div class="col full">
+                        <h2>Найпоширені сумніви щодо ПДФО</h2>
+                    </div>
+                </div>
+                <ul class="faq__list">
+                    <li>
+                        <div class="faq__list-header">
+                            <h4>Чи відрізняється розрахунок, якщо у мене немає зарплати, оскільки я самозайнята особа?
+                            </h4>
+                            <button class="faq__list-collapse"></button>
+                        </div>
+                        <p>
+                            Утримання податку на доходи фізичних осіб також застосовується до самозайнятих осіб, але
+                            лише в певних випадках. Це повинні зробити ті самозайняті особи, які зареєстровані у другому
+                            та третьому розділах ПДД, тобто ті, хто займається професійною та творчою діяльністю. І вони
+                            повинні застосовувати це утримання, яке зазвичай становить 15%, у рахунках-фактурах за свої
+                            послуги компаніям, але не фізичним особам. Для нових самозайнятих працівників (у перші три
+                            роки діяльності) відсоток утримання падає до 7%.
+                        </p>
+                    </li>
+                    <li>
+                        <div class="faq__list-header">
+                            <h4>Як дізнатися, який ПДФО мені відповідає?</h4>
+                            <button class="faq__list-collapse"></button>
+                        </div>
+                        <p>
+                            Утримання податку на доходи фізичних осіб також застосовується до самозайнятих осіб, але
+                            лише в певних випадках. Це повинні зробити ті самозайняті особи, які зареєстровані у другому
+                            та третьому розділах ПДД, тобто ті, хто займається професійною та творчою діяльністю. І вони
+                            повинні застосовувати це утримання, яке зазвичай становить 15%, у рахунках-фактурах за свої
+                            послуги компаніям, але не фізичним особам. Для нових самозайнятих працівників (у перші три
+                            роки діяльності) відсоток утримання падає до 7%.
+                        </p>
+                    </li>
+                    <li>
+                        <div class="faq__list-header">
+                            <h4>Відрізняється розрахунок, якщо у мене немає зарплати?</h4>
+                            <button class="faq__list-collapse"></button>
+                        </div>
+                        <p>
+                            Утримання податку на доходи фізичних осіб також застосовується до самозайнятих осіб, але
+                            лише в певних випадках. Це повинні зробити ті самозайняті особи, які зареєстровані у другому
+                            та третьому розділах ПДД, тобто ті, хто займається професійною та творчою діяльністю. І вони
+                            повинні застосовувати це утримання, яке зазвичай становить 15%, у рахунках-фактурах за свої
+                            послуги компаніям, але не фізичним особам. Для нових самозайнятих працівників (у перші три
+                            роки діяльності) відсоток утримання падає до 7%.
+                        </p>
+                    </li>
+                    <li class="show">
+                        <div class="faq__list-header">
+                            <h4>Чи відрізняється розрахунок, якщо у мене немає зарплати, оскільки я самозайнята особа?
+                            </h4>
+                            <button class="faq__list-collapse"></button>
+                        </div>
+                        <p>
+                            Утримання податку на доходи фізичних осіб також застосовується до самозайнятих осіб, але
+                            лише в певних випадках. Це повинні зробити ті самозайняті особи, які зареєстровані у другому
+                            та третьому розділах ПДД, тобто ті, хто займається професійною та творчою діяльністю. І вони
+                            повинні застосовувати це утримання, яке зазвичай становить 15%, у рахунках-фактурах за свої
+                            послуги компаніям, але не фізичним особам. Для нових самозайнятих працівників (у перші три
+                            роки діяльності) відсоток утримання падає до 7%.
+                        </p>
+                    </li>
+                    <li>
+                        <div class="faq__list-header">
+                            <h4>Як дізнатися, який ПДФО мені відповідає?</h4>
+                            <button class="faq__list-collapse"></button>
+                        </div>
+                        <p>
+                            Утримання податку на доходи фізичних осіб також застосовується до самозайнятих осіб, але
+                            лише в певних випадках. Це повинні зробити ті самозайняті особи, які зареєстровані у другому
+                            та третьому розділах ПДД, тобто ті, хто займається професійною та творчою діяльністю. І вони
+                            повинні застосовувати це утримання, яке зазвичай становить 15%, у рахунках-фактурах за свої
+                            послуги компаніям, але не фізичним особам. Для нових самозайнятих працівників (у перші три
+                            роки діяльності) відсоток утримання падає до 7%.
+                        </p>
+                    </li>
+                    <li>
+                        <div class="faq__list-header">
+                            <h4>Розрахунок, якщо у мене немає зарплати, оскільки ?</h4>
+                            <button class="faq__list-collapse"></button>
+                        </div>
+                        <p>
+                            Утримання податку на доходи фізичних осіб також застосовується до самозайнятих осіб, але
+                            лише в певних випадках. Це повинні зробити ті самозайняті особи, які зареєстровані у другому
+                            та третьому розділах ПДД, тобто ті, хто займається професійною та творчою діяльністю. І вони
+                            повинні застосовувати це утримання, яке зазвичай становить 15%, у рахунках-фактурах за свої
+                            послуги компаніям, але не фізичним особам. Для нових самозайнятих працівників (у перші три
+                            роки діяльності) відсоток утримання падає до 7%.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner container">
+            <a href="/" class="header__logo logo">
+                <img class="logo__image" src="assets/images/logo.png" alt="logo">
+                Logo
+            </a>
+            <p class="copy">© Калькулятор податку на доходи фізичних осіб. Всі права захищені.</p>
+            <div class="social">
+                <a href="" class="facebook">facebook</a>
+                <a href="" class="instagram">instagram</a>
+                <a href="" class="linkedin">linkedin</a>
+                <a href="" class="play-circle">play-circle</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+</body>
+
+</html>

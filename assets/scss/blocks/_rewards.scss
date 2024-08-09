@@ -1,0 +1,65 @@
+.rewards {
+
+    & h2 {
+        margin: 32px 0 60px;
+
+        @include phone {
+            margin: 16px 0 40px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+
+        @include tablet {
+            flex-wrap: wrap;
+        }
+
+        @include mobile {
+            gap: 20px;
+        }
+
+        @include phone {
+            flex-direction: column;
+        }
+
+        & li {
+            padding: 24px 16px;
+            background: var(--color-light);
+            border-radius: 20px;
+
+            @include tablet {
+                max-width: calc(50% - 5px);
+            }
+
+            @include mobile {
+                max-width: calc(50% - 10px);
+            }
+
+            @include phone {
+                max-width: 100%;
+            }
+
+            & span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                @include squere(60px);
+                border-radius: 50%;
+                background: var(--color-dark);
+            }
+
+            & h4 {
+                margin: 40px 0 24px;
+                font-size: 18px;
+                font-weight: 600;
+
+                @include phone {
+                    margin: 32px 0 16px;
+                }
+            }
+        }
+    }
+}

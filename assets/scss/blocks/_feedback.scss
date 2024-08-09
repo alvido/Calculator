@@ -1,0 +1,127 @@
+.feedback {
+
+    margin-bottom: 120px;
+
+    @include mobile {
+        margin-bottom: 80px;
+    }
+
+    @include phone {
+        margin-bottom: 60px;
+    }
+
+    &__inner {
+        position: relative;
+        padding: 60px;
+        background: var(--color-gray);
+        border-radius: var(--border-radius-large);
+
+        @include tablet {
+            padding: 40px 32px;
+        }
+
+        @include phone {
+            padding: 32px 16px;
+            border-radius: 24px;
+        }
+
+        & h2 {
+            margin-bottom: 24px;
+
+            @include phone {
+                margin-bottom: 7px;
+            }
+        }
+    }
+
+    &__link {
+        position: absolute;
+        top: 60px;
+        right: 60px;
+        padding: 2px 4px;
+        display: flex;
+        align-items: center;
+        column-gap: 24px;
+        background: var(--color-light);
+        width: 260px;
+        border-radius: 60px;
+        
+        @include tablet {
+            top: 40px;
+            right: 32px;
+        }
+
+        @include mobile {
+            position: static;
+            margin-top: 24px;
+        }
+
+        @include hover {
+            background: var(--color-accent);
+            color: var(--color-light);
+
+            & svg path{
+                stroke: var(--color-light);
+            }
+        }
+    }
+    &__form {
+        margin-top: 48px;
+        padding-top: 48px;
+        border-top: var(--border);
+
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+
+        @include tablet {
+            margin-top: 32px;
+            padding-top: 32px;
+        }
+
+        @include mobile {
+            margin-top: 24px;
+            padding-top: 24px;
+            gap: 12px 32px;
+        }
+
+        @include phone {
+            flex-direction: column;
+        }
+
+        & input {
+            width: calc(25% - 9px);
+
+            @include tablet {
+                width: calc(50% - 6px);
+            }
+
+            @include mobile {
+                width: calc(50% - 16px);
+            }
+
+            @include phone {
+                width: 100%;
+            }
+        }
+
+        & .button {
+            width: calc(25% - 9px);
+            border-radius: 8px;
+
+
+            @include tablet {
+                width: calc(50% - 6px);
+            }
+
+            @include mobile {
+                width: calc(50% - 16px);
+            }
+
+            @include phone {
+                width: 100%;
+            }
+        }
+    }
+}

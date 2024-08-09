@@ -1,0 +1,203 @@
+/*scroll bar*/
+/* Работает в Firefox */
+* {
+    scrollbar-width: thin;
+    /* "auto" или "thin" */
+    scrollbar-color: var(--color-accent-alt) transparent;
+    /* цвет бегунка и зоны отслеживания */
+}
+
+/* Работает в Chrome, Edge и Safari */
+*::-webkit-scrollbar {
+    width: 8px;
+    /* ширина всей полосы прокрутки */
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--color-border);
+    /* цвет зоны отслеживания */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--color-accent-alt);
+    /* цвет бегунка */
+    border-radius: 20px;
+    /* округлось бегунка */
+    border: 2px solid transparent;
+    /* отступ вокруг бегунка */
+}
+
+body {
+    color: var(--color-dark);
+    background: var(--color-light);
+
+    font-family: var(--font-family-base);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.4;
+
+    &.lock {
+        overflow: hidden;
+        max-height: 100vh;
+    }
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+    transition-duration: var(--transition-duration);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+blockquote {
+    margin: 0 0 16px 0;
+    padding: 16px 40px;
+    background: rgba(85, 112, 255, 0.05);
+    border-left: 4px solid rgba(85, 112, 255, 1)
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 500;
+    margin: 0;
+}
+
+h1 {
+    @include fluid-text(35, 27);
+    font-weight: 600;
+    line-height: 1.2;
+
+    & span {
+        color: var(--color-accent);
+    }
+}
+
+h2 {
+    position: relative;
+    @include fluid-text(32, 24);
+    font-weight: 600;
+
+}
+
+h3 {
+    @include fluid-text(30, 20);
+    font-weight: 600;
+}
+
+h4 {
+    @include fluid-text(26, 18);
+}
+
+h5 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.section__text {
+    @include fluid-text(18, 16);
+    font-weight: 600;
+
+    &:where(:not(:last-child)) {
+        margin-bottom: var(--paragraphMarginBottom);
+
+    }
+}
+
+
+.section__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 12px;
+
+    & li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+
+        &::before {
+            content: '';
+            display: block;
+            @include squere(32px);
+            min-width: 32px;
+            background: url(/assets/images/icon/check.svg) no-repeat center, var(--gradient);
+            border-radius: var(--border-radius-small);
+        }
+    }
+}
+
+.full {
+    width: 100% !important;
+}
+
+.wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 40px 20px;
+    flex-wrap: wrap;
+
+    @include tablet {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    @include phone {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+.col {
+    width: calc(50% - 10px);
+
+    @include tablet {
+        width: 100%;
+    }
+}
+
+.border-bottom {
+    border-bottom: var(--border);
+}
+
+.section--bg {
+    background: var(--color-gray);
+    padding: clamp(2.5rem, 0.625rem + 8.33vw, 7.5rem) 0 clamp(3.625rem, 2.172rem + 6.46vw, 7.5rem);
+
+}
+
+.subtitle {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+
+    @include phone {
+        font-size: 16px;
+    }
+}
+
+.limit {
+
+    @include phone {
+        display: -webkit-box;
+        -webkit-line-clamp: 15;
+        line-clamp: 15;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &.show {
+        -webkit-line-clamp: inherit;
+        line-clamp: inherit;
+    }
+}

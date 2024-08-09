@@ -1,0 +1,43 @@
+.search {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    translate: 0 -50%;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2;
+
+    &.search--active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__submit,
+    &__open {
+        @include reset-button;
+    }
+
+    &__submit {
+        position: absolute;
+        top: 50%;
+        right: 0px;
+        translate: 0 -50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & svg path {
+            stroke: var(--color-accent);
+        }
+    }
+
+    &__open {
+        color: var(--color-light);
+
+        @include hover {
+            scale: 1.1;
+        }
+    }
+}

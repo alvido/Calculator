@@ -1,0 +1,85 @@
+.contacts {
+    padding: 40px 0;
+
+    @include mobile {
+        padding: 20px 0;
+    }
+
+    & .wrapper {
+        padding: 40px 0;
+
+        @include mobile {
+            padding: 20px 0;
+        }
+
+        @include tablet {
+            &:first-child {
+                flex-direction: column-reverse;
+
+                & .contacts__img {
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        &:last-child {
+            gap: 60px;
+
+            & .col {
+                width: calc(50% - 30px);
+
+                @include tablet {
+                    width: 100%;
+                }
+            }
+        }
+
+        & h2 {
+            margin-bottom: 24px;
+
+            @include phone {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    & .info {
+        margin-top: 60px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 12px;
+
+        @include tablet {
+            margin-top: 40px;
+        }
+    }
+
+    & .links {
+        display: flex;
+        align-items: center;
+
+        @include mobile {
+            position: relative;
+            padding-left: 40px;
+            flex-wrap: wrap;
+            row-gap: 8px;
+        }
+
+
+        & img {
+            margin-right: 16px;
+
+            @include mobile {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        & a {
+            margin-right: 40px;
+        }
+    }
+}

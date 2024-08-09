@@ -1,0 +1,59 @@
+.hero {
+    position: relative;
+    padding: clamp(2.875rem, 1.844rem + 4.58vw, 5.625rem) 0 clamp(3rem, 1.195rem + 8.02vw, 7.813rem);
+
+    &::before {
+        content: '';
+        display: block;
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: url(/assets/images/Rectangle.png) no-repeat left;
+        background-size: cover;
+        z-index: -1;
+
+        @include mobile {
+            width: 100%;
+            height: 200px;
+        }
+
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 20px;
+
+        & .content {
+            width: 50%;
+            max-width: 580px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: clamp(1.25rem, 0.969rem + 1.25vw, 2rem);
+            @include fluid-text(18, 16);
+
+            @include mobile {
+                width: auto;
+                max-width: none;
+            }
+        }
+
+    }
+
+    &__image {
+        width: 50%;
+
+        @include mobile {
+            width: auto;
+            margin: 0 auto;
+        }
+
+        @include phone {
+            margin-top: 20px;
+        }
+    }
+}

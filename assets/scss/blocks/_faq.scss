@@ -1,0 +1,110 @@
+.faq {
+    margin-bottom: 120px;
+
+    @include mobile {
+        margin-bottom: 80px;
+    }
+
+    @include phone {
+        margin-bottom: 60px;
+    }
+
+    &__list {
+        margin-top: 60px;
+        border-top: var(--border);
+        border-bottom: var(--border);
+
+        & li {
+            overflow: hidden;
+            padding: 32px 0;
+            border-bottom: var(--border);
+
+            @include mobile {
+                padding: 24px 0;
+            }
+
+            @include phone {
+                padding: 16px 0;
+            }
+
+            &.show {
+
+                & button {
+                    &::after {
+                        rotate: 0deg;
+                    }
+                }
+
+                & p {
+                    margin-top: 32px;
+                    opacity: 1;
+                    visibility: visible;
+                    height: auto;
+
+                    @include mobile {
+                        margin-top: 24px;
+                    }
+
+                    @include phone {
+                        margin-top: 16px;
+                    }
+                }
+
+            }
+
+            &:last-child {
+                border: none;
+            }
+
+            & p {
+                font-size: 16px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                height: 0;
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        &-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            column-gap: 10px;
+
+            & h4 {
+                position: relative;
+                font-size: 18px;
+                font-weight: 600;
+                cursor: pointer;
+                user-select: none
+            }
+
+            & button {
+                @include reset-button;
+                @include squere(24px);
+                min-width: 24px;
+                min-height: 24px;
+                position: relative;
+
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    translate: -50% -50%;
+                    display: block;
+                    width: 14px;
+                    height: 2px;
+                    background: var(--color-dark);
+                    transition: all .3s ease;
+                }
+
+                &::after {
+                    rotate: 90deg;
+                }
+            }
+        }
+    }
+}
