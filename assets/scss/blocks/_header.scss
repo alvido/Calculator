@@ -28,13 +28,19 @@
         margin: 0;
     }
 
+    @include mobile {
+        column-gap: 20px;
+    }
+
     @include phone {
         column-gap: 20px;
     }
 
-    & .button {
+    & .header__button {
         @include phone {
             display: none;
+            position: absolute;
+            visibility: hidden;
         }
     }
 }

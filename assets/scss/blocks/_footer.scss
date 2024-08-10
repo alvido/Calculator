@@ -2,6 +2,9 @@
     padding: clamp(2.5rem, 1.563rem + 4.17vw, 5rem) 0;
     color: var(--color-light);
     background-color: var(--color-dark);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 
     &__inner {
         display: flex;

@@ -1,15 +1,26 @@
 .search {
     position: absolute;
-    right: 0;
+    right: 100%;
     top: 50%;
     translate: 0 -50%;
     opacity: 0;
     visibility: hidden;
     z-index: 2;
+    transition-duration: var(--transition-duration);
 
     &.search--active {
         opacity: 1;
         visibility: visible;
+    }
+
+    & input {
+        height: 40px;
+        border-radius: 8px 0 0 8px;
+        border-right: none;
+
+        &:focus-visible {
+            border-color: var(--color-border);
+        }
     }
 
     &__submit,
@@ -20,13 +31,16 @@
     &__submit {
         position: absolute;
         top: 50%;
-        right: 0px;
+        left: 100%;
         translate: 0 -50%;
-        width: 44px;
-        height: 44px;
+        @include squere(40px);
         display: flex;
         align-items: center;
         justify-content: center;
+        background: var(--color-light);
+        border-radius: 0 8px 8px 0;
+        border: var(--border);
+        border-left: none;
 
         & svg path {
             stroke: var(--color-accent);
@@ -35,6 +49,8 @@
 
     &__open {
         color: var(--color-light);
+        @include flex-center;
+        @include squere(40px);
 
         @include hover {
             scale: 1.1;

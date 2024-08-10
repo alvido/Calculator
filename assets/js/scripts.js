@@ -65,26 +65,32 @@ document.addEventListener("DOMContentLoaded", function () {
   const decreaseButton = document.getElementById("decreaseButton");
 
   const togglePeopleCount = () => {
-    if (peopleCheckbox.checked) {
-      peopleCountContainer.classList.remove("visually-hidden");
-    } else {
-      peopleCountContainer.classList.add("visually-hidden");
+    if (peopleCheckbox) {
+      if (peopleCheckbox.checked) {
+        peopleCountContainer.classList.remove("visually-hidden");
+      } else {
+        peopleCountContainer.classList.add("visually-hidden");
+      }
+
+      peopleCheckbox.addEventListener("change", togglePeopleCount);
     }
   };
 
-  peopleCheckbox.addEventListener("change", togglePeopleCount);
+  if (increaseButton) {
+    increaseButton.addEventListener("click", function () {
+      let currentValue = parseInt(peopleCountInput.value) || 1;
+      peopleCountInput.value = currentValue + 1;
+    });
+  }
 
-  increaseButton.addEventListener("click", function () {
-    let currentValue = parseInt(peopleCountInput.value) || 1;
-    peopleCountInput.value = currentValue + 1;
-  });
-
-  decreaseButton.addEventListener("click", function () {
-    let currentValue = parseInt(peopleCountInput.value) || 1;
-    if (currentValue > 1) {
-      peopleCountInput.value = currentValue - 1;
-    }
-  });
+  if (decreaseButton) {
+    decreaseButton.addEventListener("click", function () {
+      let currentValue = parseInt(peopleCountInput.value) || 1;
+      if (currentValue > 1) {
+        peopleCountInput.value = currentValue - 1;
+      }
+    });
+  }
 
   // Initialize the visibility on page load
   togglePeopleCount();
