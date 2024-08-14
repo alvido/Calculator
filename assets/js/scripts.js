@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // faq collapse
 document.addEventListener("DOMContentLoaded", function () {
   document
-    .querySelectorAll(".faq__list-header h4, .faq__list-collapse")
+    .querySelectorAll(".faq__header h4, .faq__list-collapse")
     .forEach(function (element) {
       element.addEventListener("click", function () {
         var liItem = this.closest("li");
@@ -116,8 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".more").forEach(function (morelink) {
     morelink.addEventListener("click", function () {
-      var wrapper = this.closest(".wrapper");
-      var limitElement = wrapper.querySelector(".limit");
+      var limitElement = this.previousElementSibling;
       if (limitElement) {
         limitElement.classList.toggle("show");
       }
@@ -131,10 +130,10 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(() => {
         if (this.classList.contains("less")) {
           this.innerHTML =
-            'Повернутися <img src="assets/images/icon/shevron.svg" alt="">';
+            'Повернутися <figure class="wp-block-image size-full"><img decoding="async" src="http://backup/wp-content/uploads/2024/08/shevron.svg" alt="" class="wp-image-567"></figure>';
         } else {
           this.innerHTML =
-            'Читати більше <img src="assets/images/icon/shevron.svg" alt="">';
+            'Читати більше <figure class="wp-block-image size-full"><img decoding="async" src="http://backup/wp-content/uploads/2024/08/shevron.svg" alt="" class="wp-image-567"></figure>';
         }
         // Плавно отображаем кнопку обратно
         this.style.opacity = "1";

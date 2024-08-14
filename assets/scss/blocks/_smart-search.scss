@@ -23,7 +23,7 @@
             margin-top: 24px;
         }
 
-        & li {
+        & .item {
             padding: 20px 32px;
             background: var(--color-gray);
             border-radius: 20px;
@@ -36,7 +36,6 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                margin-bottom: 40px;
 
                 @include phone {
                     margin-bottom: 24px;

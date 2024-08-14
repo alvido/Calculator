@@ -37,6 +37,7 @@
     }
 
     & .header__button {
+        
         @include phone {
             display: none;
             position: absolute;

@@ -26,6 +26,8 @@
     }
 
     @include hover {
+
+        color: var(--color-light);
         &::before {
             opacity: 1;
         }
@@ -80,7 +82,8 @@
 }
 
 .more {
-    display: none;
+    margin-top: 16px;
+    display: none !important;
     @include reset-button;
 
     font-size: 14px;
@@ -92,7 +95,7 @@
     transition: all .3s ease;
 
     @include phone {
-        display: flex;
+        display: flex !important;
     }
 
     & img {
@@ -104,4 +107,12 @@
             rotate: 180deg;
         }
     }
+}
+
+p.wrapper:last-child {
+    padding-bottom: 0;
+}
+
+:where(.wp-block-columns) {
+    margin-bottom: 0;
 }
