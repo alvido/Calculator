@@ -92,55 +92,76 @@
                 <div class="calculator__inner">
                     <form action="" class="calculator__form">
                         <label for="brutto">
-                            Річна зарплата брутто
-                            <input type="number" id="brutto" name="brutto" placeholder="1000">
+                            Sueldo bruto anual
+                            <input type="number" id="brutto" name="brutto" value="1000">
                         </label>
                         <label for="age">
-                            Вік
-                            <input type="number" id="age" name="age" placeholder="25">
+                            Edad
+                            <input type="number" id="age" name="age" value="25">
                         </label>
                         <label for="category">
+                            Categoría profesional
                             <select name="category" id="category">
-                                <option value="Професійна категорія" selected disabled>Професійна категорія</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                                <option value="Categoría profesional" selected disabled>Categoría profesional</option>
+                                <option value="Ingenieros y Licenciados">Ingenieros y Licenciados</option>
+                                <option value="Ingenieros Técnicos Peritos y Ayudantes Titulados">Ingenieros Técnicos
+                                    Peritos y Ayudantes Titulados</option>
+                                <option value="Jefes Administrativos y de Taller">Jefes Administrativos y de Taller
+                                </option>
+                                <option value="Ayudantes no Titulados">Ayudantes no Titulados</option>
+                                <option value="Oficiales Administrativos">Oficiales Administrativos</option>
+                                <option value="Subalternos">Subalternos</option>
+                                <option value="Auxiliares Administrativos">Auxiliares Administrativos</option>
+                                <option value="Oficiales de primera y segunda">Oficiales de primera y segunda</option>
+                                <option value="Oficiales de tercera y Especialistas">Oficiales de tercera y
+                                    Especialistas</option>
+                                <option value="Peones">Peones</option>
+                                <option value="Trabajadores menores de dieciocho años y cualquiera">Trabajadores menores
+                                    de dieciocho años y cualquiera</option>
                             </select>
                         </label>
-                        <label class="input__row custom-checkbox" for="geographical">
-                            Географічна мобільність
-                            <input type="checkbox" name="geographical" id="geographical" checked>
-                            <span class="checkmark"></span>
-                        </label>
-                        <label for="disability">
-                            Чи маєте ви будь-який тип інвалідності?
-                            <select name="disability" id="disability">
-                                <option value="Автономне співтовариство" selected disabled>Автономне співтовариство
-                                </option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
-                                <option value="Адміністративні службовці">Адміністративні службовці</option>
+                        <label for="geographical">
+                            Comunidad autónoma
+                            <select name="geographical" id="geographical">
+                                <option value="Comunidad autónoma" selected disabled>Comunidad autónoma</option>
+                                <option value="Andalucía">Andalucía</option>
+                                <option value="Aragon">Aragon</option>
+                                <option value="Asturias">Asturias</option>
+                                <option value="Canarias">Canarias</option>
+                                <option value="Cantabria">Cantabria</option>
+                                <option value="Castilla y León">Castilla y León</option>
+                                <option value="Castilla-La Mancha">Castilla-La Mancha</option>
+                                <option value="Cataluña">Cataluña</option>
+                                <option value="Comunidad de Madrid">Comunidad de Madrid</option>
+                                <option value="Comunidad Valenciana">Comunidad Valenciana</option>
+                                <option value="Extremadura">Extremadura</option>
+                                <option value="Galicia">Galicia</option>
+                                <option value="Islas Baleares">Islas Baleares</option>
+                                <option value="La Rioja">La Rioja</option>
+                                <option value="Región de Murcia">Región de Murcia</option>
                             </select>
                         </label>
                         <label class="input__row custom-checkbox" for="demographic">
-                            Географічна мобільність
-                            <input type="checkbox" name="demographic" id="demographic">
+                            Movilidad geográfica
+                            <input type="checkbox" name="demographic" id="demographic" checked>
                             <span class="checkmark"></span>
                         </label>
+                        <label for="disability">
+                            ¿Padeces algún tipo de discapacidad?
+                            <select name="disability" id="disability">
+                                <option value="Автономне співтовариство" selected disabled>¿Padeces algún tipo de
+                                    discapacidad?</option>
+                                <option value="Sin discapacidad">Sin discapacidad</option>
+                                <option value="Entre el 33% y el 65%">Entre el 33% y el 65%</option>
+                                <option value="Entre el 33% y el 65% (con asistencia)">Entre el 33% y el 65% (con
+                                    asistencia)</option>
+                                <option value="Igual o Superior al 65%">Igual o Superior al 65%</option>
+                            </select>
+                        </label>
+
                         <label class="input__row custom-checkbox" for="people">
-                            Люди під вашою опікою
-                            <input type="checkbox" name="people" id="people" checked>
+                            Personas bajo tu cuidado
+                            <input type="checkbox" name="people" id="people">
                             <span class="checkmark"></span>
                             <label class="input__row full" for="peopleCount" id="peopleCountContainer">
                                 <button class="action__button" type="button" id="decreaseButton">
@@ -166,8 +187,8 @@
                                 </button>
                             </label>
                         </label>
-                        <button class="button button--big">
-                            Обчислити
+                        <button class="button button--big" id="calcularButton" type="button">
+                            Calcular
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5.83301 14.1663L14.1663 5.83301" stroke="white" stroke-width="1.66667"
@@ -187,103 +208,68 @@
                             до вас.</p>
                         <ul class="calculator__content__list">
                             <li>
-                                <div class="balance">
-                                    <span>
-                                        <img src="assets/images/icon/brutto.svg" alt="">
+                                <div class="balance" id="cuotaIRPF">
+                                    <span class="balance__img">
+                                        <img src="/assets/images/icon/brutto.svg"
+                                            alt="">
                                     </span>
-                                    00 <sub>00</sub>€
+                                    <span class="balance__integer">00</span>
+                                    <sub class="balance__fraction">00</sub>
+                                    €
                                 </div>
-                                <p>ПДФО</p>
+                                <p>Cuota de IRPF</p>
                             </li>
                             <li>
-                                <div class="balance">
-                                    <span>
-                                        <img src="assets/images/icon/pdfo.svg" alt="">
+                                <div class="balance" id="bruttoAnual">
+                                    <span class="balance__img">
+                                        <img src="/assets/images/icon/pdfo.svg"
+                                            alt="">
                                     </span>
-                                    889 03 <sub>00</sub>€
+                                    <span class="balance__integer">00</span>
+                                    <sub class="balance__fraction">00</sub>
+                                    €
                                 </div>
-                                <p>Річна зарплата брутто</p>
+                                <p>Sueldo bruto anual</p>
                             </li>
                             <li>
-                                <div class="balance">
-                                    <span>
-                                        <img src="assets/images/icon/heart-handshake.svg" alt="">
+                                <div class="balance" id="socialRate">
+                                    <span class="balance__img">
+                                        <img src="/assets/images/icon/heart-handshake.svg"
+                                            alt="">
                                     </span>
-                                    100 000<sub>00</sub>€
+                                    <span class="balance__integer">00</span>
+                                    <sub class="balance__fraction">00</sub>
+                                    €
                                 </div>
-                                <p>Внесок на соціальне страхування</p>
+                                <p>Cuota a la Seguridad Social</p>
                             </li>
                             <li>
-                                <div class="balance">
-                                    <span>
-                                        <img src="assets/images/icon/percentage.svg" alt="">
+                                <div class="balance" id="withholding">
+                                    <span class="balance__img">
+                                        <img src="/assets/images/icon/percentage.svg"
+                                            alt="">
                                     </span>
-                                    00 <sub>00</sub>%
+                                    <span class="balance__integer">00</span>
+                                    <sub class="balance__fraction">00</sub>
+                                    %
                                 </div>
-                                <p>Вид утримання ПДФО</p>
+                                <p>Tipo de retención en el IRPF</p>
                             </li>
                             <li class="full">
-                                <div class="balance">
-                                    <span>
-                                        <img src="assets/images/icon/grommet-money.svg" alt="">
+                                <div class="balance" id="netoAnual">
+                                    <span class="balance__img">
+                                        <img src="/assets/images/icon/grommet-money.svg"
+                                            alt="">
                                     </span>
-                                    9110 97 <sub>00</sub>€
+                                    <span class="balance__integer">00</span>
+                                    <sub class="balance__fraction">00</sub>
+                                    €
                                 </div>
-                                <p>Річна чиста зарплата</p>
+                                <p>Sueldo neto anual</p>
                             </li>
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="calculator__content mobil__result">
-                <h2 class="hidden-mobile">Результат</h2>
-                <ul class="calculator__content__list">
-                    <li>
-                        <div class="balance">
-                            <span>
-                                <img src="assets/images/icon/brutto.svg" alt="">
-                            </span>
-                            00 <sub>00</sub>€
-                        </div>
-                        <p>ПДФО</p>
-                    </li>
-                    <li>
-                        <div class="balance">
-                            <span>
-                                <img src="assets/images/icon/pdfo.svg" alt="">
-                            </span>
-                            889 03 <sub>00</sub>€
-                        </div>
-                        <p>Річна зарплата брутто</p>
-                    </li>
-                    <li>
-                        <div class="balance">
-                            <span>
-                                <img src="assets/images/icon/heart-handshake.svg" alt="">
-                            </span>
-                            100 000<sub>00</sub>€
-                        </div>
-                        <p>Внесок на соціальне страхування</p>
-                    </li>
-                    <li>
-                        <div class="balance">
-                            <span>
-                                <img src="assets/images/icon/percentage.svg" alt="">
-                            </span>
-                            00 <sub>00</sub>%
-                        </div>
-                        <p>Вид утримання ПДФО</p>
-                    </li>
-                    <li class="full">
-                        <div class="balance">
-                            <span>
-                                <img src="assets/images/icon/grommet-money.svg" alt="">
-                            </span>
-                            9110 97 <sub>00</sub>€
-                        </div>
-                        <p>Річна чиста зарплата</p>
-                    </li>
-                </ul>
             </div>
         </section>
         <section class="articles">
@@ -624,6 +610,7 @@
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="assets/js/calculator.js"></script>
     <script src="assets/js/scripts.js"></script>
 </body>
 

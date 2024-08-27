@@ -11,6 +11,10 @@ input {
     &:focus-visible {
         border-color: var(--color-accent);
     }
+
+    &.error {
+        border-color: var(--color-error);
+    }
 }
 
 label {
@@ -170,4 +174,9 @@ label {
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--single,
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
     border-color: var(--color-border);
+}
+
+.error-message {
+    font-size: 12px;
+    color: var(--color-error);
 }

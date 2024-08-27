@@ -1,39 +1,57 @@
-let returnChartInstance = null; // Инициализация переменной для хранения экземпляра графика возврата
-let incomeChartInstance = null; // Инициализация переменной для хранения экземпляра графика доходности
+// calculator //
 
 // Обработчик события загрузки страницы
 document.addEventListener("DOMContentLoaded", () => {
   // Массив идентификаторов входных элементов
   const inputs = [
-    "principal",
-    "annualContribution",
-    "contributionFrequency",
-    "dividendYield",
-    "dividendTaxRate",
-    "reinvestDividends",
-    "stockPriceAppreciation",
-    "calculationYears",
-    "dividendFrequency",
+    "brutto",
+    "age",
+    "category",
+    "geographical",
+    "demographic",
+    "disability",
+    "people",
+    "peopleCount",
   ];
+
+  let calcularButton = document.getElementById("calcularButton");
+  calcularButton.addEventListener("click", () => {
+    calculateReturns();
+    render();
+  });
 
   // Добавляем обработчики событий для каждого входного элемента
   inputs.forEach((id) => {
     const element = document.getElementById(id);
     if (element.type === "checkbox" || element.tagName === "SELECT") {
       // Если элемент является чекбоксом или выпадающим списком
-      element.addEventListener("change", calculateReturns); // Добавляем обработчик изменения
+      element.addEventListener("change", () => {
+        validateInput();
+      });
     } else {
-      element.addEventListener("input", calculateReturns); // Добавляем обработчик ввода
+      element.addEventListener("input", () => {
+        validateInput();
+      });
     }
   });
 
-  // Используем select2 для элемента contributionFrequency
-  $("#contributionFrequency").on("select2:select", function (e) {
+  const actionButton = document.querySelector(".action__button");
+  if (actionButton) {
+    this.addEventListener("click", calculateReturns); // Добавляем обработчик изменения
+  }
+
+  // Используем select2 для элемента category
+  $("#category").on("select2:select", function (e) {
     calculateReturns(); // Пересчитываем данные при изменении значения
   });
 
-  // Используем select2 для элемента dividendFrequency
-  $("#dividendFrequency").on("select2:select", function (e) {
+  // Используем select2 для элемента geographical
+  $("#geographical").on("select2:select", function (e) {
+    calculateReturns(); // Пересчитываем данные при изменении значения
+  });
+
+  // Используем select2 для элемента disability
+  $("#disability").on("select2:select", function (e) {
     calculateReturns(); // Пересчитываем данные при изменении значения
   });
 
@@ -42,301 +60,150 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Функция для расчета данных
 function calculateReturns() {
-  const principal = parseFloat(document.getElementById("principal").value);
-  const annualContribution = parseFloat(
-    document.getElementById("annualContribution").value
-  );
-  const contributionFrequency = document.getElementById(
-    "contributionFrequency"
-  ).value;
+  let tax = 1241.53;
 
-  const dividendYield =
-    parseFloat(document.getElementById("dividendYield").value) / 100;
-  const dividendTaxRate =
-    parseFloat(document.getElementById("dividendTaxRate").value) / 100;
-  const reinvestDividends =
-    document.getElementById("reinvestDividends").checked;
-  const stockPriceAppreciation =
-    parseFloat(document.getElementById("stockPriceAppreciation").value) / 100;
-  const calculationYears = parseInt(
-    document.getElementById("calculationYears").value
-  );
+  const brutto = parseFloat(document.getElementById("brutto").value);
+  const age = parseFloat(document.getElementById("age").value);
+  // const category = document.getElementById("category").value;
+  // const geographical = document.getElementById("geographical").value;
+  // const demographic = document.getElementById("demographic").checked;
+  // const disability = document.getElementById("disability").value;
+  // const people = document.getElementById("people").checked;
+  // const peopleCount = document.getElementById("peopleCount").value;
 
-  let contributionAmount = annualContribution;
+  // Пример значения brutto
+  bruttoAnual = brutto; // Ваше значение brutto
 
-  // Учитываем частоту взносов
-  if (contributionFrequency === "month") {
-    contributionAmount /= 12; // Раз в месяц
-  } else if (contributionFrequency === "quarter") {
-    contributionAmount /= 4; // Раз в квартал
-  } else if (contributionFrequency === "half-year") {
-    contributionAmount /= 2; // Раз в полгода
-  }
+  // Массив объектов для хранения диапазонов и соответствующих значений
+  const taxBrackets = [
+    { min: 14501, max: 25000, rate: 10.5 },
+    { min: 25001, max: 50000, rate: 16.5 },
+    { min: 50001, max: 90000, rate: 27.5 },
+    { min: 90001, max: 150000, rate: 33 },
+    { min: 150001, max: 200000, rate: 37 },
+    { min: 200001, max: 300000, rate: 40 },
+    { min: 300001, max: 400000, rate: 45 },
+    { min: 400001, max: 600000, rate: 47 },
+    { min: 600001, max: 1000000, rate: 48 },
+    { min: 1000001, max: 10000000, rate: 49 },
+  ];
 
-  let totalPrincipal = principal;
-  let totalContributions = 0;
-  let totalDividends = 0;
-
-  const annualData = [];
-  const monthlyIncomeData = [];
-  const breakdownData = [];
-  let cumulativeReturnPercent = 0;
-  let totalGrowth = 0;
-
-  for (let year = 1; year <= calculationYears; year++) {
-    let yearDividends = 0;
-    let yearDividendsTax = 0;
-    let yearGrowth = 0;
-    let yearBalanceStart = totalPrincipal;
-    let yearContributions = 0;
-
-    let period = 0;
-    const dividendFrequency =
-      document.getElementById("dividendFrequency").value;
-    if (dividendFrequency === "year") {
-      period = 1; // Ежегодно
-    } else if (dividendFrequency === "quarter") {
-      period = 4; // Ежеквартально
-    } else if (dividendFrequency === "half-year") {
-      period = 2; // Раз в полгода
-    } else {
-      period = 12; // Ежемесячно
-    }
-
-    for (let i = 0; i < period; i++) {
-      const dividends = (totalPrincipal * dividendYield) / period;
-      yearDividends += dividends;
-      const tax = dividends * dividendTaxRate; // Рассчитать налог на дивиденды
-      yearDividendsTax += tax;
-      totalDividends += dividends - tax;
-      if (reinvestDividends) {
-        totalPrincipal += dividends;
-      }
-      totalPrincipal += contributionAmount;
-      yearContributions += contributionAmount;
-      totalContributions += contributionAmount;
-    }
-
-    totalPrincipal *= 1 + stockPriceAppreciation;
-
-    if (!reinvestDividends) {
-      yearGrowth =
-        totalPrincipal -
-        yearBalanceStart -
-        yearContributions +
-        yearDividendsTax;
-    } else {
-      yearGrowth =
-        totalPrincipal -
-        yearBalanceStart -
-        yearContributions -
-        yearDividends +
-        yearDividendsTax;
-    }
-
-    totalGrowth += yearGrowth;
-
-    const yearReturn = totalPrincipal - yearBalanceStart - yearContributions;
-    const yearReturnPercent = ((yearReturn / yearBalanceStart) * 100).toFixed(
-      2
+  // Функция для определения налоговой ставки
+  function getPersonalTax(bruttoAnual) {
+    // Найти соответствующую налоговую ставку
+    const taxBracket = taxBrackets.find(
+      (bracket) => bruttoAnual >= bracket.min && bruttoAnual <= bracket.max
     );
 
-    cumulativeReturnPercent += parseFloat(yearReturnPercent);
-
-    annualData.push({
-      principal,
-      contributions: totalContributions,
-      dividends: totalDividends,
-      growth: yearGrowth,
-    });
-
-    monthlyIncomeData.push(totalDividends / (year * period));
-
-    breakdownData.push({
-      year: year,
-      balance: yearBalanceStart.toFixed(2),
-      annualDividends: yearDividends.toFixed(2),
-      dividendTax: yearDividendsTax.toFixed(2),
-      growth: yearGrowth.toFixed(2),
-      newBalance: totalPrincipal.toFixed(2),
-      return: yearReturn.toFixed(2),
-      returnPercent: yearReturnPercent + "%",
-    });
+    // Вернуть соответствующую налоговую ставку или 0 по умолчанию
+    return taxBracket ? taxBracket.rate : 0;
   }
 
-  const totalReturnPercent =
-    ((totalPrincipal - principal - totalContributions) /
-      (principal + totalContributions)) *
-    100;
-  document.getElementById("totalReturn").innerText =
-    totalReturnPercent.toFixed(2) + "%";
+  // Вычислить налоговую ставку
+  const personalTax = getPersonalTax(bruttoAnual);
 
-  const averageReturnPercent = (
-    cumulativeReturnPercent / calculationYears
-  ).toFixed(2);
-  document.getElementById("averageYearlyReturn").innerText =
-    averageReturnPercent + "%";
+  socialRate = tax;
 
-  document.getElementById("principalBreakdown").innerText =
-    principal.toFixed(2);
-  document.getElementById("contributionsBreakdown").innerText = (
-    annualContribution * calculationYears
-  ).toFixed(2);
-  document.getElementById("dividendsBreakdown").innerText =
-    totalDividends.toFixed(2);
+  withholding = personalTax;
 
-  document.getElementById("growthBreakdown").innerText = totalGrowth.toFixed(2);
+  cuotaIRPF = (bruttoAnual * withholding) / 100;
 
-  const newBalance = breakdownData[breakdownData.length - 1].newBalance;
-  const integerPart = Math.floor(newBalance);
-  const fractionalPart = (newBalance - integerPart).toFixed(2);
-
-  document.getElementById("integer").innerText = integerPart;
-  document.getElementById("fractional").innerText = fractionalPart.slice(1);
-
-  renderChart(annualData);
-  renderIncomeChart(monthlyIncomeData);
-  renderBreakdownTable(breakdownData);
+  netoAnual = bruttoAnual - cuotaIRPF - socialRate;
 }
 
-// Функция для отображения таблицы разбивки данных
-function renderBreakdownTable(data) {
-  const table = `
-    <table>
-        <thead>
-            <tr>
-                <th>Year</th>
-                <th>Balance</th>
-                <th>Annual Dividends</th>
-                <th>Dividend Tax</th>
-                <th>Growth</th>
-                <th>New Balance</th>
-                <th>Return</th>
-                <th>Return %</th>
-            </tr>
-        </thead>
-        <tbody>
-            ${data
-              .map(
-                (row) => `
-                <tr>
-                    <td>${row.year}</td>
-                    <td>${row.balance}</td>
-                    <td>${row.annualDividends}</td>
-                    <td>${row.dividendTax}</td>
-                    <td>${row.growth}</td>
-                    <td>${row.newBalance}</td>
-                    <td>${row.return}</td>
-                    <td>${row.returnPercent}</td>
-                </tr>
-            `
-              )
-              .join("")}
-        </tbody>
-    </table>
-  `;
-  document.getElementById("breakdownTable").innerHTML = table;
-}
+function validateInput() {
+  // Получаем все input элементы с типом number
+  const numberInputs = document.querySelectorAll('input[type="number"]');
 
-// Функция для отображения графика данных
-function renderChart(data) {
-  const ctx = document.getElementById("returnChart").getContext("2d");
+  // Перебираем найденные инпуты
+  numberInputs.forEach((input) => {
+    const value = input.value; // Получаем значение текущего инпута
+    const numberValue = parseFloat(value); // Преобразуем значение в число
 
-  if (returnChartInstance) {
-    returnChartInstance.destroy();
-  }
+    // Создаем сообщение об ошибке
+    let errorMessage = input.nextElementSibling;
 
-  const labels = data.map((_, i) => `${i + 1}`);
-  const principalData = data.map((d) => d.principal);
-  const contributionsData = data.map((d) => d.contributions);
-  const dividendsData = data.map((d) => d.dividends);
-  const growthData = data.map((d) => d.growth);
-
-  returnChartInstance = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          label: "Principal",
-          data: principalData,
-          backgroundColor: "#5570FF",
-          borderRadius: 8,
-        },
-        {
-          label: "Contributions",
-          data: contributionsData,
-          backgroundColor: "#3D56D7",
-          borderRadius: 8,
-        },
-        {
-          label: "Dividends",
-          data: dividendsData,
-          backgroundColor: "#65A2FF",
-          borderRadius: 8,
-        },
-        {
-          label: "Growth",
-          data: growthData,
-          backgroundColor: "#91CAFF",
-          borderRadius: 8,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        x: {
-          stacked: true,
-        },
-        y: {
-          stacked: true,
-          beginAtZero: true,
-        },
-      },
-    },
+    // Проверка для элемента с id "edad"
+    if (input.id === "age") {
+      // Проверка диапазона от 1 до 200 для элемента с id "edad"
+      if (
+        isNaN(numberValue) ||
+        numberValue < 1 ||
+        numberValue > 200 ||
+        !Number.isInteger(numberValue)
+      ) {
+        if (!errorMessage) {
+          errorMessage = document.createElement("span");
+          errorMessage.classList.add("error-message");
+          input.parentNode.insertBefore(errorMessage, input.nextSibling);
+        }
+        errorMessage.textContent =
+          "Значение может быть только целая цифра от 1 до 200.";
+        input.classList.add("error");
+      } else {
+        input.classList.remove("error");
+        if (errorMessage) {
+          errorMessage.remove();
+        }
+      }
+    } else {
+      // Общая проверка для всех других input[type="number"]
+      if (
+        isNaN(numberValue) ||
+        numberValue < 1 ||
+        numberValue > 10000000 ||
+        !Number.isInteger(numberValue)
+      ) {
+        if (!errorMessage) {
+          errorMessage = document.createElement("span");
+          errorMessage.classList.add("error-message");
+          input.parentNode.insertBefore(errorMessage, input.nextSibling);
+        }
+        errorMessage.textContent =
+          "Значение может быть только целая цифра от 1 до 10000000.";
+        input.classList.add("error");
+      } else {
+        input.classList.remove("error");
+        if (errorMessage) {
+          errorMessage.remove();
+        }
+      }
+    }
   });
 }
 
-function renderIncomeChart(data) {
-  const ctx = document.getElementById("incomeChart").getContext("2d");
+function render() {
+  const brutto = parseFloat(document.getElementById("brutto").value.trim());
+  const age = parseFloat(document.getElementById("age").value.trim());
 
-  if (incomeChartInstance) {
-    incomeChartInstance.destroy();
-  }
+  // Массив с числами для каждого элемента balance
+  const numbers = [cuotaIRPF, bruttoAnual, socialRate, withholding, netoAnual];
 
-  const labels = data.map((_, i) => `${i + 1}`);
+  // Находим все элементы с классом .balance
+  const balanceElements = document.querySelectorAll(".balance");
 
-  incomeChartInstance = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          label: "Average Monthly Income",
-          data: data,
-          backgroundColor: "#5570FF",
-          borderColor: "#5570FF",
-          borderRadius: 8,
-          borderWidth: 1,
-          fill: true,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        x: {
-          title: {
-            display: true,
-            // text: 'Year'
-          },
-        },
-        y: {
-          title: {
-            display: true,
-            text: "Average Monthly Income",
-          },
-        },
-      },
-    },
+  // Перебираем каждый .balance и вставляем соответствующие числа и метки
+  balanceElements.forEach((balanceElement, index) => {
+    const integerElement = balanceElement.querySelector(".balance__integer");
+    const fractionElement = balanceElement.querySelector(".balance__fraction");
+
+    // Получаем число и текстовую метку для текущего .balance
+    const number = numbers[index];
+
+    // Разделение числа на целую и дробную части
+    const integerPart = Math.floor(number); // Целая часть
+    const fractionPart = (number - integerPart).toFixed(2).substring(2); // Дробная часть
+
+    console.log(brutto, age, integerPart, fractionPart);
+
+    // Проверяем, что integerElement и subElement существуют
+    if (integerElement) {
+      integerElement.textContent = integerPart;
+    }
+    if (fractionElement) {
+      fractionElement.textContent = fractionPart;
+    }
   });
 }
+
+// calculator //

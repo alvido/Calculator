@@ -220,7 +220,7 @@
                     @include fluid-text(32, 18);
                     color: var(--color-light);
 
-                    & span {
+                    &__img {
                         margin-right: clamp(0.375rem, 0.141rem + 1.04vw, 1rem);
                         display: flex;
                         align-items: center;

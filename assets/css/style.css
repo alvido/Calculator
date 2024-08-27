@@ -190,6 +190,7 @@ svg * {
   --color-accent-alt: #B0A9F9;
   --color-gray: #EEF0F9;
   --color-border: #CADCF7;
+  --color-error: #ff0000;
   --border: 1px solid var(--color-border);
   --border-radius: 16px;
   --border-radius-small: 8px;
@@ -1137,7 +1138,7 @@ p.wrapper:last-child {
   font-size: clamp(18px, 2.6229508197vw, 32px);
   color: var(--color-light);
 }
-.calculator__content__list li .balance span {
+.calculator__content__list li .balance__img {
   margin-right: clamp(0.375rem, 0.141rem + 1.04vw, 1rem);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1154,12 +1155,12 @@ p.wrapper:last-child {
   border-radius: 50%;
 }
 @media (max-width: 1023px) {
-  .calculator__content__list li .balance span {
+  .calculator__content__list li .balance__img {
     width: 50px;
   }
 }
 @media (max-width: 560px) {
-  .calculator__content__list li .balance span {
+  .calculator__content__list li .balance__img {
     width: 32px;
     padding: 6px;
     margin-right: 6px;
@@ -1655,6 +1656,9 @@ input {
 input:focus-visible {
   border-color: var(--color-accent);
 }
+input.error {
+  border-color: var(--color-error);
+}
 
 label {
   display: -webkit-box;
@@ -1836,6 +1840,11 @@ label.full input {
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--single,
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
   border-color: var(--color-border);
+}
+
+.error-message {
+  font-size: 12px;
+  color: var(--color-error);
 }
 
 .articles {

@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // // select2
 $(document).ready(function () {
-  $("#category, #disability").select2({
+  $("#category, #disability, #geographical").select2({
     minimumResultsForSearch: Infinity,
   });
 });
