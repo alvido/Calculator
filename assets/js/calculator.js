@@ -205,5 +205,3 @@ function render() {
     }
   });
 }
-
-// calculator //

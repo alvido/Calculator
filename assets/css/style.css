@@ -1654,10 +1654,10 @@ input {
   outline: none;
 }
 input:focus-visible {
-  border-color: var(--color-accent);
+  border-color: var(--color-accent); 
 }
 input.error {
-  border-color: var(--color-error);
+  border-color: var(--color-error) !important;
 }
 
 label {
